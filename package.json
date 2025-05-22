@@ -21,16 +21,14 @@
     "build-storybook": "storybook build"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^5.0.0",
-    "@mui/material": "^5.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.0",
-    "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.0.0",
-    "@mui/material": "^5.0.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.0.0-alpha.2",
+    "@mui/material": "^6.4.11",
     "axios": "^1.6.7",
     "i18next": "^23.0.0",
     "i18next-browser-languagedetector": "^7.0.0",

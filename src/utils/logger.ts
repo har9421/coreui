@@ -24,4 +24,4 @@ const logger = {
   warn: logWarning,
 };
 
-export default logger; 
+export default {logError,logInfo,logWarning}; 
