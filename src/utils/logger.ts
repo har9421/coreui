@@ -1,46 +1,27 @@
-import winston from 'winston';
-
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console({
-      format: winston.format.combine(
-        winston.format.colorize(),
-        winston.format.simple()
-      ),
-    }),
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' }),
-  ],
-});
+const formatMessage = (level: string, message: string, meta?: any) => {
+  const timestamp = new Date().toISOString();
+  return `[${timestamp}] ${level}: ${message}${meta ? ` ${JSON.stringify(meta)}` : ''}`;
+};
 
 export const logError = (error: Error, context?: string) => {
-  logger.error({
-    message: error.message,
+  console.error(formatMessage('ERROR', error.message, {
     stack: error.stack,
     context,
-    timestamp: new Date().toISOString(),
-  });
+  }));
 };
 
 export const logInfo = (message: string, meta?: any) => {
-  logger.info({
-    message,
-    meta,
-    timestamp: new Date().toISOString(),
-  });
+  console.info(formatMessage('INFO', message, meta));
 };
 
 export const logWarning = (message: string, meta?: any) => {
-  logger.warn({
-    message,
-    meta,
-    timestamp: new Date().toISOString(),
-  });
+  console.warn(formatMessage('WARN', message, meta));
+};
+
+const logger = {
+  error: logError,
+  info: logInfo,
+  warn: logWarning,
 };
 
 export default logger; 

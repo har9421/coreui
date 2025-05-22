@@ -59,7 +59,6 @@ export default {
     'i18next',
     'react-i18next',
     'i18next-browser-languagedetector',
-    'winston',
     'zustand',
     'axios',
     'jwt-decode',
